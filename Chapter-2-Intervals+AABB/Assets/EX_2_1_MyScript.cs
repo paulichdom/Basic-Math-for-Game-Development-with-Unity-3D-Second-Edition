@@ -20,6 +20,12 @@ public class EX_2_1_MyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Ensure IntervalMin is not greater than IntervalMax
+        if (IntervalMin >= IntervalMax) {
+            IntervalMin = IntervalMax - 1.0f;
+            Debug.LogWarning("IntervalMin was greater than IntervalMax. Adjusting IntervalMin to match IntervalMax.");
+        }
+        
         // Updates AnInteval with values entered by the user
         AnInterval.MinValue = IntervalMin;
         AnInterval.MaxValue = IntervalMax;
